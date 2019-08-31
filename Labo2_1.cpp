@@ -9,6 +9,7 @@ struct Nodo{
 
 class Pila{
     public:
+        Nodo *inicio;
         Nodo* crearNodo(int valor){
             Nodo *n = new Nodo;
             n -> dato = valor;
@@ -40,6 +41,19 @@ class Pila{
                 }
         }
 
+        int tamanoPila(){
+            Nodo *temp = inicio;
+            int cont = 0;
+            if(!inicio)
+                return 0;
+            else
+                while(temp){
+                    temp = temp -> sig;
+                    cont++;
+                }
+            return cont;
+        }
+
         Pila(){
             inicio = nullptr;
         }
@@ -47,5 +61,29 @@ class Pila{
 
 int main(){
 
+    int n, i, num;
+
+    Pila par, impar;
+
+
+    cout << "Cantidad de numeros que ingresará: ";
+
+    cin >> n;
+
+    for (i = 0; i < n; i++){
+        cout << "Ingrese numero: ";
+        cin>> num;
+        
+        if(num%2==0){
+            par.push(num);
+        }
+        else
+           impar.push(num);
+        
+    }
+    
+    cout << "Tamaño par: " << par.tamanoPila() <<endl;
+    cout << "Tamaño impar: " << impar.tamanoPila() << endl;
+ 
     return 0;
 }
