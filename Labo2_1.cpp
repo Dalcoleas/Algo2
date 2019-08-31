@@ -23,12 +23,6 @@ class Pila{
             inicio = n;
         }
 
-        /*void pop(){
-            Nodo *temp = inicio;
-            inicio = inicio -> sig;
-            free(temp);
-        }*/
-
         void mostrarPila(){
             Nodo *temp = inicio;
             if(!inicio)
@@ -63,7 +57,7 @@ int main(){
 
     int n, i, num;
 
-    Pila par, impar;
+    Pila pares, impares;
 
 
     cout << "Cantidad de numeros que ingresará: ";
@@ -75,15 +69,29 @@ int main(){
         cin>> num;
         
         if(num%2==0){
-            par.push(num);
+            pares.push(num);
         }
         else
-           impar.push(num);
+           impares.push(num);
         
     }
-    
-    cout << "Tamaño par: " << par.tamanoPila() <<endl;
-    cout << "Tamaño impar: " << impar.tamanoPila() << endl;
- 
+
+    cout << "Elementos pila numeros pares: "<< endl;
+    pares.mostrarPila();
+    cout << "Elementos pila numeros impares: "<<endl;
+    impares.mostrarPila();
+    cout << "--------------"<<endl;
+
+    if(pares.tamanoPila() == impares.tamanoPila()){
+        cout << "Tamaño de Pilas es Igual!" <<endl;
+        cout << "Tamaño Pila numeros Pares: " << pares.tamanoPila()<<endl;
+        cout << "Tamaño Pila numeros impares: " << impares.tamanoPila()<<endl;
+    }
+    else{
+        cout << "Las pilas no poseen la misma cantidad de elementos"<<endl;
+        cout << "Tamaño Pila numeros Pares: " << pares.tamanoPila()<<endl;
+        cout << "Tamaño Pila numeros impares: " << impares.tamanoPila()<<endl;
+    }
+
     return 0;
 }
