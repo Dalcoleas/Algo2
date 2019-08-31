@@ -5,7 +5,7 @@ using namespace std;
 struct Nodo{
     int dato;
     Nodo *sig;
-} *inicio;
+};
 
 class Pila{
     public:
